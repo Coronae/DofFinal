@@ -17,13 +17,13 @@ Func DetectBle()
 	local $ShadeVariation=0
 	local $ResBle
 	do
-		$ResBle = FFBestSpot(50, 1, 150, 100, 100, 0xF5CC12, $ShadeVariation, 0, 0, 0, 0, true) ; Force un nouveau snapShot à chaque passage (cf DetectBlancNoir pour optimisation simple possible)
+		$ResBle = FFNearestPixel ( 0, 0, 0xF5CC12) ; Vielle solution => FFBestSpot(50, 1, 150, 100, 100, 0xF5CC12, $ShadeVariation, 0, 0, 0, 0, true) ; Force un nouveau snapShot à chaque passage (cf DetectBlancNoir pour optimisation simple possible)
 		if (Not IsArray($ResBle)) Then $ShadeVariation += 1
 	until (IsArray($ResBle) OR $ShadeVariation >250)
 	if (IsArray($ResBle)) Then
 
-		MouseMove($ResBle[0], $ResBle[1] + 40) ; +40 car curseur decale, vue que mousemove prend en compte l'ecran total pour les coord alors que FFBestSpot ne prend en compte que dofus pour coord...... C'EST LA MERDE
-		MouseClick("left", $ResBle[0], $ResBle[1] + 40)
+		MouseMove($ResBle[0], $ResBle[1] + 30) ; +30 car curseur decale, vue que mousemove prend en compte l'ecran total pour les coord alors que FFBestSpot ne prend en compte que dofus pour coord...... C'EST LA MERDE
+		MouseClick("left", $ResBle[0], $ResBle[1] + 30)
 		sleep(500)
 		MouseClick("left", $ResBle[0] + 10, $ResBle[1] + 91)
 		local $sMsg = " pixels found (ShadeVariation : "&$ShadeVariation&"): the corresponding spot the closest is in "&$ResBle[0]&","&$ResBle[1];
