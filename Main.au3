@@ -20,6 +20,9 @@ global const $DEBUG_DEFAULT = 3
 global const $DEBUG_GRAPHIC = $DEBUG_DEFAULT + 4
 global const $WINDOW_CLASS = "ShockwaveFlash" ; CLASS of the target Window
 global const $WINDOW_TITLE = "Dofus" ; TITLE of the target Window
+Global $MaRessource = "avoine" ; Determine ressource recherché. Disponible actuellement :  ble orge avoine fer cuivre ATTENTTION  TOUT MINUSCULE
+
+
 
 FFSetDebugMode($DEBUG_GRAPHIC) 	 ; Enable advanced (graphical) debug mode, so you will have traces + graphical feedback
 FFSetDefaultSnapShot(0)
